@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strconv"
 
-	webhooks "github.com/Kavinraja-G/namespace-bouncer/pkg/webhooks"
+	webhooks "github.com/Kavinraja-G/kube-bouncer/pkg/webhooks"
 )
 
 type WebhookParameters struct {

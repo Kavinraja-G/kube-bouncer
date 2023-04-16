@@ -1,4 +1,4 @@
-module github.com/Kavinraja-G/namespace-bouncer
+module github.com/Kavinraja-G/kube-bouncer
 
 go 1.18
 

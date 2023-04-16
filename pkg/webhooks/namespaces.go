@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"strings"
 
-	admission "github.com/Kavinraja-G/namespace-bouncer/pkg/admission"
-	utils "github.com/Kavinraja-G/namespace-bouncer/pkg/utils"
+	admission "github.com/Kavinraja-G/kube-bouncer/pkg/admission"
+	utils "github.com/Kavinraja-G/kube-bouncer/pkg/utils"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/runtime/serializer"
 	"k8s.io/utils/strings/slices"
