@@ -9,14 +9,11 @@ import (
 
 	admission "github.com/Kavinraja-G/kube-bouncer/pkg/admission"
 	utils "github.com/Kavinraja-G/kube-bouncer/pkg/utils"
-	"k8s.io/apimachinery/pkg/runtime"
-	"k8s.io/apimachinery/pkg/runtime/serializer"
 	"k8s.io/utils/strings/slices"
 )
 
 var (
-	denyNamespaces        = strings.Split(utils.GetEnv("DENY_NAMESPACES", ""), ",")
-	universalDeserializer = serializer.NewCodecFactory(runtime.NewScheme()).UniversalDeserializer()
+	denyNamespaces = strings.Split(utils.GetEnv("DENY_NAMESPACES", ""), ",")
 )
 
 // handler for namespaceBouncer validation webhooks

@@ -2,36 +2,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nsbouncer-server
-  namespace: nsbouncer-poc
+  name: kubebouncer-server
+  namespace: kubebouncer-poc
   labels:
-    app: nsbouncer-server
+    app: kubebouncer-server
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nsbouncer-server
+      app: kubebouncer-server
   template:
     metadata:
       labels:
-        app: nsbouncer-server
+        app: kubebouncer-server
     spec:
       containers:
-      - name: nsbouncer
+      - name: kubebouncer
         imagePullPolicy: Always
-        image: kavinrajaganesan/nsbouncer:latest
+        image: kavinrajaganesan/kubebouncer:latest
         env:
         - name: DENY_NAMESPACES
           value: "prod"
         ports:
         - containerPort: 8443
-          name: nsbouncer-api
+          name: kubebouncer-api
         volumeMounts:
-        - name: nsbouncer-tls-certs
-          mountPath: /etc/nsbouncer/certs
+        - name: kubebouncer-tls-certs
+          mountPath: /etc/kubebouncer/certs
           readOnly: true
 
       volumes:
-      - name: nsbouncer-tls-certs
+      - name: kubebouncer-tls-certs
         secret:
-          secretName: nsbouncer-tls-secret
+          secretName: kubebouncer-tls-secret

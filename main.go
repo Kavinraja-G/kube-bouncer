@@ -21,11 +21,12 @@ func main() {
 
 	// setup flags for the webhook server
 	flag.IntVar(&webhookParams.port, "port", 8443, "Server port for the Webhook")
-	flag.StringVar(&webhookParams.certFile, "tlsCert", "/etc/nsbouncer/certs/tls.crt", "File containing the certficate required for HTTPS communication")
-	flag.StringVar(&webhookParams.keyFile, "tlsKey", "/etc/nsbouncer/certs/tls.key", "Private key file for the TLS certificate")
+	flag.StringVar(&webhookParams.certFile, "tlsCert", "/etc/kubebouncer/certs/tls.crt", "File containing the certficate required for HTTPS communication")
+	flag.StringVar(&webhookParams.keyFile, "tlsKey", "/etc/kubebouncer/certs/tls.key", "Private key file for the TLS certificate")
 
 	// validate routes
 	http.HandleFunc("/validate-namespace", webhooks.NamespaceBouncer)
+	http.HandleFunc("/validate-pods", webhooks.PodBouncer)
 
 	// start the server with TLS
 	log.Fatal(http.ListenAndServeTLS(":"+strconv.Itoa(webhookParams.port), webhookParams.certFile, webhookParams.keyFile, nil))
