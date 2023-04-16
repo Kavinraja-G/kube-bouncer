@@ -20,6 +20,9 @@ spec:
       - name: nsbouncer
         imagePullPolicy: Always
         image: kavinrajaganesan/nsbouncer:latest
+        env:
+        - name: DENY_NAMESPACES
+          value: "prod"
         ports:
         - containerPort: 8443
           name: nsbouncer-api
