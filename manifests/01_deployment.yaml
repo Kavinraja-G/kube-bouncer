@@ -19,10 +19,10 @@ spec:
       containers:
       - name: kubebouncer
         imagePullPolicy: Always
-        image: kavinrajaganesan/kubebouncer:latest
+        image: ghcr.io/kavinraja-g/kubebouncer:latest
         env:
         - name: DENY_NAMESPACES
-          value: "prod"
+          value: "prod" # Can be `comma` seperate values
         ports:
         - containerPort: 8443
           name: kubebouncer-api
