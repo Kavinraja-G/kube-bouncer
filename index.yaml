@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  kubebouncer:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2023-04-23T07:39:08.065000672Z"
+    description: A Helm chart for Kubebouncer
+    digest: 389c9a024aeb238433abd9f697c865b24b350656a61ecf1e7be7891082fe89a0
+    name: kubebouncer
+    type: application
+    urls:
+    - https://github.com/Kavinraja-G/kube-bouncer/releases/download/kubebouncer-0.1.0/kubebouncer-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-04-23T07:39:08.065006572Z"
