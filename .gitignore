@@ -17,4 +17,4 @@
 # Custom
 dist/
 scripts/
-kubebouncer
+./kubebouncer
