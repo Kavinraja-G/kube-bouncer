@@ -1,6 +1,6 @@
 apiVersion: v2
 name: kubebouncer
-description: A Helm chart for deploying Kubebouncer
+description: A Helm chart for Kubebouncer
 
 # A chart can be either an 'application' or a 'library' chart.
 #
