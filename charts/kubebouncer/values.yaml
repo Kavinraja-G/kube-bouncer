@@ -2,36 +2,46 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+# -- Replica Count used for the kubebouncer deployment
 replicaCount: 1
 
 image:
+  # -- Image repository to be used for kubebouncer
   repository: ghcr.io/kavinraja-g/kubebouncer
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+  # -- Overrides the image tag whose default is the chart appVersion.
   tag: "0.1.0"
 
+# -- ImagePullSecrets if the image is from a private registry
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+# -- Annotations for the pods
 podAnnotations: {}
 
+# -- Resource `requests` & `limits` for the server
 resources: {}
 
-# Pod placements
+# -- NodeSelectors used for Pod placements
 nodeSelector: {}
+
+# -- Tolerations used for Pod placements in the node if they have taints configured
 tolerations: []
+
+# -- PodAffinities if any
 affinity: {}
 
-# Configure service to be used for webhooks
+# -- Configure service to be used for webhooks
 service:
   type: ClusterIP
+  # -- port defaults to `8443` must be the same as the server listens
   port: 8443
 
-# Secret with TLS certificates used for webhooks
+# -- Secret with TLS certificates used for webhooks
 tlsSecret: "kubebouncer-tls-secret" 
 
-# Environment vars used in the webhook server deployment
+# -- Environment vars used in the webhook server deployment
 envVars:
 - name: DENY_NAMESPACES # This envVar is required for the NamespaceBouncer
   value: ""
